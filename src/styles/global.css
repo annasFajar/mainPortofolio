@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer components {
+    .main {
+        @apply px-29 h-screen overflow-y-scroll snap-y snap-mandatory 
+    }
+
+    .section {
+        @apply h-screen flex flex-col justify-center items-start 
+    }
+
+    .navbarTop {
+        @apply flex backdrop-blur-xs justify-between w-full fixed top-0 px-19 py-3 
+    }
+    .navbarLeft {
+        @apply flex w-full fixed px-19 py-3 z-30 justify-between 
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        scrollbar-width: none;
+    }
+}
+
+@utility flex-center {
+    @apply flex items-center justify-center
+}
