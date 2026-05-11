@@ -1,5 +1,5 @@
 import type { RouteObject } from "react-router-dom";
-import MainLanding from "../pages/Home/MainLanding";
+import MainLanding from "../pages/LandingPage/MainLanding";
 
 const Routes:RouteObject[] = [
     {

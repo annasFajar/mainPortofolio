@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+
+
 @layer components {
+    .no-scrollbar::-webkit-scrollbar { 
+        @apply hidden /* Chrome, Safari, Opera */
+    }
+
     .main {
-        @apply px-29 h-screen overflow-y-scroll snap-y snap-mandatory 
+        @apply  h-screen overflow-y-scroll snap-y snap-mandatory 
     }
 
     .section {
@@ -10,20 +17,19 @@
     }
 
     .navbarTop {
-        @apply flex backdrop-blur-xs justify-between w-full fixed top-0 px-19 py-3 
+        @apply flex backdrop-blur-xs justify-between w-full fixed top-0 px-19 h-14 items-center
     }
     .navbarLeft {
         @apply flex w-full fixed px-19 py-3 z-30 justify-between 
     }
 
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        scrollbar-width: none;
-    }
+
 }
 
 @utility flex-center {
     @apply flex items-center justify-center
+}
+
+@theme {
+    --font-jost:"Jost", 'Jost Fallback', sans-serif;
 }

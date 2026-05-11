@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from "react"
 import NavbarLeft from "../components/navbarLeft/NavbarLeft"
 import NavbarTop from "../components/navbarTop/NavbarTop"
 import { useContainer, useScroll } from "../context/ScrollContext"
-import SectionsWrapper from "../sectionsWrapper/SectionsWrapper"
+import SectionsWrapper from "../components/sectionsWrapper/SectionsWrapper"
 import { UsePageScroll } from "../hooks/UsePageScroll"
+import SectionsWrappers from "../components/sectionsWrapper/SectionsWrappers"
 
 const Layout = () => {
     // const {activeSection, setActiveSection} = useScroll()
     // const sectionRef = useRef(null)
-    const {containerRef,sectionRef} = UsePageScroll()
+    // const {containerRef,sectionRef} = UsePageScroll()
     // const {}
     // const {containerRef} = useContainer()
     // const contatinerRef = 
@@ -70,22 +71,23 @@ const Layout = () => {
 
 
     return <>
-        <div className="bg-black">
+        <div className="main no-scrollbar">
             
             {/* Navbar Top */}
             <NavbarTop/>
 
             {/* Navbar Left */}
-            <NavbarLeft ref={sectionRef}/>
+            {/* <NavbarLeft ref={sectionRef}/> */}
 
             {/* section */}
-            <div
-                // onScroll={handleScroll}
+            {/* <div
+                onScroll={handleScroll}
                 ref={containerRef}
                 className="main bg-red-300 no-scrollbar"
             >
-                <SectionsWrapper ref={sectionRef}/> 
-            </div>
+                <SectionsWrapper ref={sectionRef}/>  */}
+                <SectionsWrappers/>
+            {/* </div> */}
         </div>
     </>
 }
