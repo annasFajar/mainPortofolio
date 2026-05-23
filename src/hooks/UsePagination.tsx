@@ -2,14 +2,14 @@ import React, { useCallback, type Ref } from "react"
 import { usePageState } from "../context/ScrollContext"
 
 type UsePaginationProps = {
-    isAnimating:()=>void
+    isAnimating:()=>void 
     
 }
 
 export const UsePagination = ({isAnimating}:UsePaginationProps) => {
     const {page,direction,setPage} = usePageState()
 
-    const pagination = useCallback((newDirection:number) => {
+    const pagination = useCallback((newDirection:number, clicked?:number) => {
         setPage(([currentPage]) => {
             const userPage = currentPage + newDirection
             if (userPage < 0) {
@@ -30,9 +30,17 @@ export const UsePagination = ({isAnimating}:UsePaginationProps) => {
             return [userPage,newDirection]
         })
     },[])
+
+    const paginationNavLeft = (userClick:number,newDirection:number) => {
+        setPage(([currentPage]) => {
+            const userPage = currentPage = userClick
+
+            return [userPage,newDirection]
+        })
+    }
     
     const nextPage = useCallback(()=> pagination(1),[])
     const previousPage = useCallback(()=>pagination(-1),[])
     
-    return {nextPage,previousPage}
+    return {nextPage,previousPage,paginationNavLeft}
 }

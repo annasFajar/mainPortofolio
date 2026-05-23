@@ -11,7 +11,7 @@ import { UsePagination } from "../../hooks/UsePagination"
 const SectionsWrappers = () => {
     // const [[page, direction], setPage] = useState([0,0])
     
-    const sections = [<SectionHome/>,<SectionProject/>,<SectionAboutMe/>,<SectionContacts/>]
+    const sections = [<SectionHome/>,<SectionAboutMe/>,<SectionProject/>,<SectionContacts/>]
     const {page,direction,setPage} = usePageState()
     // const sectionIndex = wrap(0, sections.length, page)
     // const {containerRef} = useContainer()
@@ -38,13 +38,13 @@ const SectionsWrappers = () => {
 
 
     const variants = {
-        enter: (dirCustom:number) => {
-            return {
-                x: -300, 
-                opacity: 0,
-                duration: 15
-            }
-        },
+        // enter: (dirCustom:number) => {
+        //     return {
+        //         x: -300, 
+        //         opacity: 0,
+        //         // duration: 15
+        //     }
+        // },
         center: {
             zIndex:0,
             y: 0, 
@@ -55,9 +55,9 @@ const SectionsWrappers = () => {
         exit: (dirCustom:number) => {
             return {
                 zIndex: 0,
-                y:dirCustom > 0 ? -300 : 300, 
-                opacity: 0,
-                duration: 15
+                y:dirCustom > 0 ? -window.innerHeight : window.innerHeight, 
+                opacity: 1,
+                // duration: 1
             }
         }
     }
@@ -133,11 +133,18 @@ const SectionsWrappers = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="bg-yellow-500 h-screen"
+                    className=" h-screen"
                     transition={{
-                        y: {type: "spring", stiffness:300, damping: 30},
-                        opacity: {duration:0.2},
-                        // duration: 2000
+                        y: {
+                            type: "tween", 
+                            // stiffness: 50,   // makin kecil = makin lambat
+                            // damping: 10,      // makin kecil = makin mantul
+                            // mass: 5.5,
+                            duration: 1
+                        },
+                        // opacity: {duration:1},
+                        // opacity: 1;
+                        // ease: [1, 0, 1, 1],
                     }}
                     onAnimationComplete={(definition)=>{
                         console.log(`definition: ${definition}, page: ${page}`)

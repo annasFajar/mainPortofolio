@@ -1,7 +1,8 @@
-import { AnimatePresence, useInView } from "motion/react"
+import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
 import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
+import profile from '../../../assets/images/profile2.jpg'
 
 const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
     // const {containerRef} = useContainer()
@@ -27,7 +28,23 @@ const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
     
     
     // const isActive = index === activeSection
+    const descVariants = {
+        enter: { opacity: 0, x: -50 },
+        center: { opacity: 1, x: 0 },
+    };
+
+    const buttonVariants = {
+        enter: { opacity: 0, x: -50 },
+        center: { opacity: 1, x: 0 },
+    };
+
+    const imgVariants = {
+        enter: { opacity: 0, x: 80},
+        center: { opacity: 1, x: 0 },
+    };
+    // const img = 
     
+
     useEffect(()=>{
         // console.log(ref)
         // useInView(false)
@@ -43,32 +60,120 @@ const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
     
     // console.log(ref)
 
-    
     return <>
                 <motion.section
+                    // variants={childVariants}
+                    // initial='enter1'
                     className="h-screen flex justify-center items-center"
                 >
-                    <motion.div>
-                        <motion.div>
-                            <motion.h3>
+                    <motion.div 
+                        className="flex justify-between items-center mx-auto w-[82%] max-w-screen-2xl p-10"
+                    >
+                        <motion.div
+                            className="flex flex-col gap-4 pr-3"
+                            // variants={descVariants}
+                            // transition={{
+                            //     x: {
+                            //         type: "spring",
+                            //         stiffness: 70,   // makin kecil = makin lambat
+                            //         damping: 9,      // makin kecil = makin mantul
+                            //         mass: 1.5,       // makin besar = makin berat & lambat
+                            //     },
+                            //     opacity: { duration: 1 }
+                            // }}
+                        >
+                            <motion.h3
+                                className="font-jost tracking-[0.3em] text-gray-500"
+                                variants={descVariants}
+                                transition={{
+                                    x: {
+                                        type: "spring",
+                                        stiffness: 160,   // makin kecil = makin lambat
+                                        damping: 9,      // makin kecil = makin mantul
+                                        mass: 1.5,       // makin besar = makin berat & lambat
+                                    },
+                                    opacity: { duration: 1 }
+                                }}
+                            >
                                 ANNAS FAJAR RAMADHAN
                             </motion.h3>
-                            <motion.h1>
+                            <motion.h1
+                                className="font-jost font-bold text-[48.75px]"
+                                variants={descVariants}
+                                transition={{
+                                    x: {
+                                        type: "spring",
+                                        stiffness: 150,   // makin kecil = makin lambat
+                                        damping: 9,      // makin kecil = makin mantul
+                                        mass: 1.5,       // makin besar = makin berat & lambat
+                                    },
+                                    opacity: { duration: 1 }
+                                }}
+                            >
                                 Frontend Developer
                             </motion.h1>
-                            <motion.p>
+                            <motion.p
+                                className="font-jost text-[14px] text-gray-500"
+                                variants={descVariants}
+                                transition={{
+                                    x: {
+                                        type: "spring",
+                                        stiffness: 140,   // makin kecil = makin lambat
+                                        damping: 9,      // makin kecil = makin mantul
+                                        mass: 1.5,       // makin besar = makin berat & lambat
+                                    },
+                                    opacity: { duration: 1 }
+                                }}
+                            >
                                 Hi! I'm Annas, a Frontend Developer passionate about building 
                                 clean and responsive web experiences. I focus on crafting 
                                 modern UI with great attention to detail, user experience, 
                                 and writing maintainable code.
                             </motion.p>
-                            <motion.div>
+                            <motion.div
+                                className="flex py-4"
+                                variants={buttonVariants}
+                                transition={{
+                                    x: {
+                                        type: "spring",
+                                        stiffness: 100,   // makin kecil = makin lambat
+                                        damping: 9,      // makin kecil = makin mantul
+                                        mass: 1.5,       // makin besar = makin berat & lambat
+                                    },
+                                    // delay:1
+                                }}
+                            >
+                                <button
+                                    className="mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out bg-gray-700 hover:bg-transparent border-transparent hover:border-gray-700 border-2 text-gray-100 hover:text-gray-700 box-border"
+                                >Download CV</button>
+                                <button
+                                    className="mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out transparent border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-gray-100 box-border"
+                                >Contact Me</button>
                             </motion.div>
-                                <button>Download CV</button>
-                                <button>Contact Me</button>
                         </motion.div>
-                        <motion.div>
-
+                        <motion.div
+                            variants={imgVariants}
+                            transition={{
+                                x: {
+                                    
+                                    type: "spring",
+                                    stiffness: 80,   // makin kecil = makin lambat
+                                    damping: 9,      // makin kecil = makin mantul
+                                    mass: 1.5,       // makin besar = makin berat & lambat
+                                    delay:0.8
+                                    
+                                },
+                                opacity: { duration:1, delay:0.8},
+                                // opacity: { duration: 1 }
+                                // delay:1
+                            }}
+                        >
+                            <img 
+                                src={profile}  
+                                alt="profile" 
+                                className="rounded-[550px] p-10 transition ease-in-out duration-500 object-cover grayscale hover:grayscale-0"
+                                // style={{color:"transparent"}}    
+                            />
                         </motion.div>
                     </motion.div>
                 </motion.section>

@@ -77,7 +77,7 @@ const Layout = () => {
             <NavbarTop/>
 
             {/* Navbar Left */}
-            {/* <NavbarLeft ref={sectionRef}/> */}
+            <NavbarLeft />
 
             {/* section */}
             {/* <div
