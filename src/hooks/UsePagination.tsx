@@ -2,11 +2,11 @@ import React, { useCallback, type Ref } from "react"
 import { usePageState } from "../context/ScrollContext"
 
 type UsePaginationProps = {
-    isAnimating:()=>void 
-    
+    isAnimating:()=>void,
+    touchAnimation: () => void
 }
 
-export const UsePagination = ({isAnimating}:UsePaginationProps) => {
+export const UsePagination = ({isAnimating,touchAnimation}:UsePaginationProps) => {
     const {page,direction,setPage} = usePageState()
 
     const pagination = useCallback((newDirection:number, clicked?:number) => {
@@ -27,6 +27,7 @@ export const UsePagination = ({isAnimating}:UsePaginationProps) => {
                 return [currentPage,newDirection]
             }
             console.log(`direction:${newDirection}`)
+            touchAnimation()
             return [userPage,newDirection]
         })
     },[])

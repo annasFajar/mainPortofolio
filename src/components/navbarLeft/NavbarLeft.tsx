@@ -57,7 +57,7 @@ const NavbarLeft = () => {
         <div
             // ref={navLeft}
             // onClick={()=>scrollTo(landingRef)}
-            className="bg-gray-700 fixed left-0 z-10 top-1/4 h-[50vh] p-2 rounded-r-3xl flex justify-center items-center"
+            className="max-md:hidden bg-gray-700 fixed left-0 z-10 top-1/4 h-[50vh] p-2 rounded-r-3xl flex justify-center items-center"
         >
             {/* <li className={activeSection === 0 ? 'bg-red-400' : ''}
                 onClick={()=>{

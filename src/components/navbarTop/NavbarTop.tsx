@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react"
-import {  useState, type Ref } from "react"
+import {  useState } from "react"
 
 const NavbarTop = () => {
     const [nav, setNav] = useState<boolean>(false)
@@ -7,7 +7,9 @@ const NavbarTop = () => {
     const variantNavTop = {
         close: {
             color: '#000',
+            background: 'rgba(0, 0, 0, 0)',
             transition:{
+                background: {duration:0.5},
                 color: { delay: 0, duration: 0 },
             }
         },
@@ -15,7 +17,7 @@ const NavbarTop = () => {
             color: '#fff',
             background: '#364153',
             transition: {
-                background: { delay: 0.5, duration: 5 }, // ✅ lebih reliable di variants
+                background: { delay: 0.2, duration: 2 }, // ✅ lebih reliable di variants
                 // color: { delay: 0, duration: 0.4 }, // ✅ lebih reliable di variants
                 
             }
@@ -230,7 +232,7 @@ const NavbarTop = () => {
     return <>
 
             <motion.nav 
-                className="navbarTop z-40"
+                className="navbarTop z-40 max-md:px-5 md:px-19"
                 animate={nav ? 'open':'close'}
                 variants={variantNavTop}
             >

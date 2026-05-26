@@ -4,7 +4,7 @@ import { UsePagination } from "./UsePagination"
 // import { AnimateInOut } from "../utils/animateInOut"
 
 type UsePageScrollProps = {
-    refContainer:React.Ref<HTMLElement>
+    refContainer:React.Ref<HTMLElement> | null
     scrollUp: () => void,
     scrollDown: () => void
 }

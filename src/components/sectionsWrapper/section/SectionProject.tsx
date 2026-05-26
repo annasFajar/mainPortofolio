@@ -1,10 +1,8 @@
-import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
-import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
+import { useEffect} from "react"
 import aboutMe from '../../../assets/images/aboutMe.jpg'
 
-const SectionProject = forwardRef<HTMLDivElement>(({title, index},ref) => {
+const SectionProject = () => {
     // const {containerRef} = useContainer()
     // const {visibleSection, setVisibleSection} = useVisibleSection()
     // const sectionRef = useRef(activeSection)
@@ -68,15 +66,17 @@ const SectionProject = forwardRef<HTMLDivElement>(({title, index},ref) => {
                     className="h-screen flex justify-center items-center"
                 >
                     <motion.div 
-                        className="flex justify-between items-center mx-auto w-[82%] max-w-screen-2xl p-10"
+                        className="md:p-10 max-md:flex-col-reverse flex justify-between items-center mx-auto w-[82%] max-w-screen-2xl"
                     >
                         <motion.div
-                            className="flex flex-col gap-9 pr-3"
+                            className="max-md:-mt-12 max-md:z-10 md:pr-3 max-md:gap-6 md:gap-4 flex flex-col"
                             
                         >
-                            <motion.div>
+                            <motion.div
+                                className="max-md:gap-4 max-md:flex max-md:flex-col"
+                            >
                                 <motion.h1
-                                    className="font-jost font-bold text-[78px]"
+                                    className="max-md:text-4xl max-md:bg-white max-md:w-fit max-md:px-2 font-jost font-bold text-[78px]"
                                     variants={descVariants}
                                     transition={{
                                         x: {
@@ -166,7 +166,7 @@ const SectionProject = forwardRef<HTMLDivElement>(({title, index},ref) => {
                         </motion.div>
                         <motion.div
                             variants={imgVariants}
-                            className="w-[400px]"
+                            className="md:w-100"
                             transition={{
                                 x: {
                                     
@@ -182,13 +182,13 @@ const SectionProject = forwardRef<HTMLDivElement>(({title, index},ref) => {
                             <motion.img 
                                 src={aboutMe}  
                                 alt="profile" 
-                                className=" transition ease-in-out duration-300 object-cover grayscale hover:grayscale-0"
+                                className="max-md:w-full max-md:h-100 transition ease-in-out duration-300 object-cover grayscale hover:grayscale-0"
                                 // style={{color:"transparent"}}    
                             />
                         </motion.div>
                     </motion.div>
                 </motion.section>
     </>
-})
+}
 
 export default SectionProject

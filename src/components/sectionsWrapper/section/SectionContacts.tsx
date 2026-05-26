@@ -260,15 +260,17 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                     className="h-screen flex justify-center items-center"
                 >
                     <motion.div 
-                        className="flex items-center mx-auto w-[82%] max-w-screen-2xl justify-between p-10"
+                        className="md:p-10 max-md:flex-col-reverse flex items-center mx-auto w-[82%] max-w-screen-2xl justify-between"
                     >
                         <motion.div
-                            className="flex flex-col gap-9 pr-3"
+                            className="max-md:-mt-12 max-md:z-10 md:pr-3 max-md:gap-6 md:gap-4 flex flex-col pr-3"
                             
                         >
-                            <motion.div>
+                            <motion.div
+                                className="max-md:gap-4 max-md:flex max-md:flex-col"
+                            >
                                 <motion.h1
-                                    className="font-jost font-bold text-[78px]"
+                                    className="max-md:text-4xl max-md:bg-white max-md:w-fit max-md:px-2 font-jost font-bold text-[78px]"
                                     variants={descVariants}
                                     transition={{
                                         x: {
@@ -333,7 +335,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                                 Feel free to contact me if you have any questions or just want to say hi.
                             </motion.p>
                             <motion.div
-                                className="flex gap-4"
+                                className="gap-4 flex"
                                 
                             >
                                 <motion.a
@@ -375,7 +377,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                         </motion.div>
                         <motion.div
                             variants={imgVariants}
-                            className="w-[400px]"
+                            className="md:w-100"
                             transition={{
                                 x: {
                                     
@@ -391,7 +393,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                             <motion.img 
                                 src={aboutMe}  
                                 alt="profile" 
-                                className=" transition ease-in-out duration-300 object-cover grayscale hover:grayscale-0"
+                                className="max-md:w-full max-md:h-100 transition ease-in-out duration-300 object-cover grayscale hover:grayscale-0"
                                 // style={{color:"transparent"}}    
                             />
                         </motion.div>

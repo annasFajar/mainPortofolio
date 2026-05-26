@@ -7,6 +7,7 @@ import { UsePageScroll } from "../../hooks/UsePageScroll"
 import SectionAboutMe from "./section/SectionAboutMe"
 import SectionContacts from "./section/SectionContacts"
 import { UsePagination } from "../../hooks/UsePagination"
+import { UsePageTouch } from "../../hooks/UsePageTouch"
 
 const SectionsWrappers = () => {
     // const [[page, direction], setPage] = useState([0,0])
@@ -21,7 +22,8 @@ const SectionsWrappers = () => {
     // const container = useRef(null)
     // const before = useRef(null)
     // const next = useRef(null)
-    const containerRef = useRef(null)
+    const [[start,end], setDirMobile] = useState([0,0])
+    const containerRef = useRef<HTMLDivElement>(null)
 
     const wheelDebounceTimer = useRef(0)
 
@@ -33,7 +35,15 @@ const SectionsWrappers = () => {
     })
     const {nextPage,previousPage} = UsePagination({
         isAnimating: () => blockAnimation(),
+        touchAnimation: () => touchAnimate()
     })
+    
+    const {touchAnimate} = UsePageTouch({
+        ref: containerRef,
+        nextScroll: () => nextPage(),
+        previousScroll: () => previousPage()
+    })
+
     
 
 
@@ -61,6 +71,39 @@ const SectionsWrappers = () => {
             }
         }
     }
+
+    // const touchStartMobile = (e:TouchEvent) => {
+    //     e.stopPropagation();
+    //     const startDirY = e.targetTouches.item(0)?.screenY
+        
+
+    //     setDirMobile(([start,end]) => {
+    //         return [startDirY,end]
+    //     })
+    // }
+
+    // const touchEndMobile = (e:TouchEvent) => {
+    //     const endDirY = e.changedTouches.item(0)?.screenY
+        
+    //     // console.log(endDirY)
+    //     // const dir = (start - endDirY)
+    //     // console.log(dir)
+        
+    //     setDirMobile(([start,end]) => {
+    //         return [start,endDirY]
+    //     })
+    // }
+        
+        
+    // if (start > end) {
+    //     console.log('scroll bawah')
+    // }
+    // if  (start < end) {
+    //     console.log('scroll atas')
+    // }
+    // console.log(start,end)   
+
+
 
     // const paginate = (newDirection:number) => {
     //     setPage([page + newDirection, newDirection])
@@ -107,6 +150,17 @@ const SectionsWrappers = () => {
     //     // refNext.addEventListener('click', nextPage)
     //     // refContainer.addEventListener('wheel', handleWheel)
     // },[nextPage,handleWheel])
+    // useEffect(()=>{
+    //     console.log(containerRef.current)
+    //     const contain:HTMLDivElement = containerRef.current
+        
+    //     contain.addEventListener('touchstart',touchStartMobile)
+    //     contain.addEventListener('touchend', touchEndMobile)
+
+    //     return () => {
+    //         contain.removeEventListener('touchstart', touchStartMobile)
+    //     }
+    // },[])
     
 
     console.log(`dir: ${direction}`) 
@@ -115,6 +169,10 @@ const SectionsWrappers = () => {
         <>
         <div
             ref={containerRef}
+            className=" h-screen"
+            style={{ touchAction: 'none' }}
+            
+            // className="bg-amber-100"
         >
             <AnimatePresence 
                 // initial={false} 
@@ -133,7 +191,6 @@ const SectionsWrappers = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className=" h-screen"
                     transition={{
                         y: {
                             type: "tween", 

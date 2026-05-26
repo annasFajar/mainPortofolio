@@ -17,7 +17,7 @@
     }
 
     .navbarTop {
-        @apply flex backdrop-blur-xs justify-between w-full fixed top-0 px-19 h-14 items-center
+        @apply flex backdrop-blur-xs justify-between w-full fixed top-0 h-14 items-center
     }
     .navbarLeft {
         @apply flex w-full fixed px-19 py-3 z-30 justify-between 
