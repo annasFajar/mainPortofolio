@@ -39,9 +39,16 @@ export const UsePagination = ({isAnimating,touchAnimation}:UsePaginationProps) =
             return [userPage,newDirection]
         })
     }
+
+    const buttonContactHome = (goTo:number, dir:number) => {
+        setPage(([currentPage, pageOut])=>{
+            const userPage = currentPage + goTo
+            return [userPage, dir]
+        })
+    }
     
     const nextPage = useCallback(()=> pagination(1),[])
     const previousPage = useCallback(()=>pagination(-1),[])
     
-    return {nextPage,previousPage,paginationNavLeft}
+    return {nextPage,previousPage,paginationNavLeft, buttonContactHome}
 }

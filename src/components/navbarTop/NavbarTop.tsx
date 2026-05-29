@@ -267,17 +267,22 @@ const NavbarTop = () => {
                 </div>
             </motion.nav>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence 
+                key={1}
+         >
             {nav && <motion.div 
                 className="fixed z-20 bg-gray-700 w-20 h-20 rounded-full opacity-95 -right-20 -top-20"
                 initial='enter'
                 animate='center'
                 exit='exit'
                 variants={variantModalNav}
+                key={1}
             >   
             </motion.div>}
             {nav && <motion.div className="w-full gap-9 z-30 h-screen fixed flex items-center justify-center flex-col text-center">
-                <motion.h1 
+                <motion.h1
+                key={1}
+
                     variants={variantMenu}
                     initial='enter'
                     animate='center'

@@ -2,7 +2,7 @@ import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
 import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
-import aboutMe from '../../../assets/images/aboutMe.jpg'
+import contact from '../../../assets/images/contact.jpg'
 import { TbMailFilled } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
@@ -341,6 +341,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                                 <motion.a
                                     className="font-jost text-[13px] rounded-full p-2 shadow-md flex justify-center items-center transition duration-300 ease-in-out bg-gray-700 border-transparent hover:bg-gray-400 border-2 text-gray-100 hover:cursor-pointer"
                                     variants={contact1Variants}
+                                    href="mailto:annasfajarramadhan@gmail.com"
                                 >
                                     <TbMailFilled
                                         className="text-white text-[28px]"
@@ -349,6 +350,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                                 <motion.a
                                     className="font-jost text-[13px] rounded-full p-2 shadow-md flex justify-center items-center transition duration-300 ease-in-out bg-gray-700 border-transparent hover:bg-gray-400 border-2 text-gray-100 hover:cursor-pointer"
                                     variants={contact2Variants}
+                                    href="https://github.com/annasFajar"
                                     >
                                     <FaGithub
                                         className="text-white text-[28px]"
@@ -357,6 +359,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                                 <motion.a
                                     className="font-jost text-[13px] rounded-full p-2 shadow-md flex justify-center items-center transition duration-300 ease-in-out bg-gray-700 border-transparent hover:bg-gray-400 border-2 text-gray-100 hover:cursor-pointer"
                                     variants={contact3Variants}
+                                    href="https://www.linkedin.com/in/annas-fajar-ramadhan-52812a344/"
                                     >
                                     <FaLinkedin
                                         className="text-white text-[28px]"
@@ -365,6 +368,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                                 <motion.a
                                     className="font-jost text-[13px] rounded-full p-2 shadow-md flex justify-center items-center transition duration-300 ease-in-out bg-gray-700 border-transparent hover:bg-gray-400 border-2 text-gray-100 hover:cursor-pointer"
                                     variants={contact4Variants}
+                                    href="https://discordapp.com/users/1021498845550620672"
                                 >
                                     <FaDiscord
                                         className="text-white text-[28px]"
@@ -391,7 +395,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                             }}
                         >
                             <motion.img 
-                                src={aboutMe}  
+                                src={contact}  
                                 alt="profile" 
                                 className="max-md:w-full max-md:h-100 transition ease-in-out duration-300 object-cover grayscale hover:grayscale-0"
                                 // style={{color:"transparent"}}    

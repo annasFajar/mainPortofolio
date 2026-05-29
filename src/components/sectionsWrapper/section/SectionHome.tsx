@@ -3,6 +3,7 @@ import {motion} from "motion/react"
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
 import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
 import profile from '../../../assets/images/profile2.jpg'
+import { UsePagination } from "../../../hooks/UsePagination"
 
 const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
     // const {containerRef} = useContainer()
@@ -13,6 +14,11 @@ const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
     const {sections} = useSectionsRef()
     const localRef = useRef(null)
     const {scope} = useAnimateInOut()
+
+    const {buttonContactHome} = UsePagination({
+        isAnimating: ()=>{},
+        touchAnimation: ()=>{}
+    })
 
     // useImperativeHandle(ref,()=>{
     //     return localRef.current!
@@ -147,7 +153,8 @@ const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
                                     className="md:mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out bg-gray-700 hover:bg-transparent border-transparent hover:border-gray-700 border-2 text-gray-100 hover:text-gray-700 box-border"
                                 >Download CV</button>
                                 <button
-                                    className="md:mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out transparent border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-gray-100 box-border"
+                                    onClick={()=>buttonContactHome(3,1)}
+                                    className="md:mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out transparent border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-gray-100 box-border cursor-pointer"
                                 >Contact Me</button>
                             </motion.div>
                         </motion.div>

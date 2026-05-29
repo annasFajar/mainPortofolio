@@ -50,7 +50,8 @@ const NavbarLeft = () => {
     };
 
     const {paginationNavLeft} = UsePagination({
-        isAnimating:()=>{}
+        isAnimating: ()=>{},
+        touchAnimation: ()=>{}
     })
 
     return <>

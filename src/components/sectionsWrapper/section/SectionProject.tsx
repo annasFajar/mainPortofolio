@@ -1,6 +1,6 @@
 import {motion} from "motion/react"
 import { useEffect} from "react"
-import aboutMe from '../../../assets/images/aboutMe.jpg'
+import myProjects from '../../../assets/images/myProjects.jpg'
 
 const SectionProject = () => {
     // const {containerRef} = useContainer()
@@ -154,11 +154,13 @@ const SectionProject = () => {
                                     opacity: { duration: 0.3, delay:0.3 }
                                 }}
                             >
-                                <motion.button
-                                    className="mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out bg-gray-700 hover:bg-transparent border-transparent hover:border-gray-700 border-2 text-gray-100 hover:text-gray-700 box-border"
-                                >
-                                    Learn More
-                                </motion.button>
+                                <a href="/myProjects">
+                                    <motion.button
+                                        className="mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out bg-gray-700 hover:bg-transparent border-transparent hover:border-gray-700 border-2 text-gray-100 hover:text-gray-700 box-border cursor-pointer"
+                                    >
+                                        Learn More
+                                    </motion.button>
+                                </a>
                                 {/* <button
                                     className="mr-3 font-jost text-[13px] rounded-2xl px-7 py-2 shadow-md transition duration-300 ease-in-out transparent border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-gray-100 box-border"
                                 >Contact Me</button> */}
@@ -180,7 +182,7 @@ const SectionProject = () => {
                             }}
                         >
                             <motion.img 
-                                src={aboutMe}  
+                                src={myProjects}  
                                 alt="profile" 
                                 className="max-md:w-full max-md:h-100 transition ease-in-out duration-300 object-cover grayscale hover:grayscale-0"
                                 // style={{color:"transparent"}}    
