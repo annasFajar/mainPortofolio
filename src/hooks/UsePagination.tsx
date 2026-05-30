@@ -1,5 +1,6 @@
-import React, { useCallback, type Ref } from "react"
-import { usePageState } from "../context/ScrollContext"
+import { useCallback } from "react"
+import { usePageState } from "../context/useScroll"
+// import { usePageState } from "../context/ScrollContext"
 
 type UsePaginationProps = {
     isAnimating:()=>void,
@@ -7,9 +8,9 @@ type UsePaginationProps = {
 }
 
 export const UsePagination = ({isAnimating,touchAnimation}:UsePaginationProps) => {
-    const {page,direction,setPage} = usePageState()
+    const {setPage} = usePageState()
 
-    const pagination = useCallback((newDirection:number, clicked?:number) => {
+    const pagination = useCallback((newDirection:number) => {
         setPage(([currentPage]) => {
             const userPage = currentPage + newDirection
             if (userPage < 0) {
@@ -30,25 +31,26 @@ export const UsePagination = ({isAnimating,touchAnimation}:UsePaginationProps) =
             touchAnimation()
             return [userPage,newDirection]
         })
-    },[])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[isAnimating,touchAnimation,])
 
     const paginationNavLeft = (userClick:number,newDirection:number) => {
-        setPage(([currentPage]) => {
-            const userPage = currentPage = userClick
+        setPage(() => {
+            const userPage = userClick
 
             return [userPage,newDirection]
         })
     }
 
     const buttonContactHome = (goTo:number, dir:number) => {
-        setPage(([currentPage, pageOut])=>{
+        setPage(([currentPage])=>{
             const userPage = currentPage + goTo
             return [userPage, dir]
         })
     }
     
-    const nextPage = useCallback(()=> pagination(1),[])
-    const previousPage = useCallback(()=>pagination(-1),[])
+    const nextPage = useCallback(()=> pagination(1),[pagination])
+    const previousPage = useCallback(()=>pagination(-1),[pagination])
     
     return {nextPage,previousPage,paginationNavLeft, buttonContactHome}
 }

@@ -1,19 +1,20 @@
-import { AnimatePresence, motion, wrap } from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
 import SectionHome from "./section/SectionHome"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useRef } from "react"
 import SectionProject from "./section/SectionProject"
-import { useContainer, useIsAnimating, usePageState } from "../../context/ScrollContext"
+// import { usePageState } from "../../context/ScrollContext"
 import { UsePageScroll } from "../../hooks/UsePageScroll"
 import SectionAboutMe from "./section/SectionAboutMe"
 import SectionContacts from "./section/SectionContacts"
 import { UsePagination } from "../../hooks/UsePagination"
 import { UsePageTouch } from "../../hooks/UsePageTouch"
+import { usePageState } from "../../context/useScroll"
 
 const SectionsWrappers = () => {
     // const [[page, direction], setPage] = useState([0,0])
     
     const sections = [<SectionHome/>,<SectionAboutMe/>,<SectionProject/>,<SectionContacts/>]
-    const {page,direction,setPage} = usePageState()
+    const {page,direction} = usePageState()
     // const sectionIndex = wrap(0, sections.length, page)
     // const {containerRef} = useContainer()
     // const {isAnimating} = useIsAnimating()
@@ -22,20 +23,24 @@ const SectionsWrappers = () => {
     // const container = useRef(null)
     // const before = useRef(null)
     // const next = useRef(null)
-    const [[start,end], setDirMobile] = useState([0,0])
+    // const [[start,end], setDirMobile] = useState([0,0])
     const containerRef = useRef<HTMLDivElement>(null)
 
-    const wheelDebounceTimer = useRef(0)
+    // const wheelDebounceTimer = useRef(0)
 
     // const scrollCondition = useRef(true)
-    const {blockAnimation,runAnimation} = UsePageScroll({
-        refContainer:containerRef,
-        scrollUp: ()=> nextPage(),
-        scrollDown: ()=> previousPage()
+    const {blockAnimation} = UsePageScroll({
+        refContainer:containerRef,        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        scrollUp: useCallback(()=> nextPage(),[]),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        scrollDown: useCallback(()=> previousPage(),[])
     })
     const {nextPage,previousPage} = UsePagination({
-        isAnimating: () => blockAnimation(),
-        touchAnimation: () => touchAnimate()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        isAnimating: useCallback(() => blockAnimation(),[]),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        touchAnimation: useCallback(() => touchAnimate(),[])
     })
     
     const {touchAnimate} = UsePageTouch({

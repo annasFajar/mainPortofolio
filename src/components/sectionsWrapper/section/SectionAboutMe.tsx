@@ -1,10 +1,10 @@
-import { AnimatePresence, color, useInView } from "motion/react"
+// import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
-import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
+import { useEffect } from "react"
+// import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
 import aboutMe from '../../../assets/images/aboutMe.jpg'
 
-const SectionAboutMe = forwardRef<HTMLDivElement>(({title, index},ref) => {
+const SectionAboutMe = () => {
     // const {containerRef} = useContainer()
     // const {visibleSection, setVisibleSection} = useVisibleSection()
     // const sectionRef = useRef(activeSection)
@@ -193,6 +193,6 @@ const SectionAboutMe = forwardRef<HTMLDivElement>(({title, index},ref) => {
                     </motion.div>
                 </motion.section>
     </>
-})
+}
 
 export default SectionAboutMe

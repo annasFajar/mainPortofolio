@@ -1,9 +1,5 @@
-import { useEffect, useRef, useState } from "react"
 import NavbarLeft from "../components/navbarLeft/NavbarLeft"
 import NavbarTop from "../components/navbarTop/NavbarTop"
-import { useContainer, useScroll } from "../context/ScrollContext"
-import SectionsWrapper from "../components/sectionsWrapper/SectionsWrapper"
-import { UsePageScroll } from "../hooks/UsePageScroll"
 import SectionsWrappers from "../components/sectionsWrapper/SectionsWrappers"
 
 const Layout = () => {

@@ -1,19 +1,20 @@
-import { AnimatePresence, color, useInView } from "motion/react"
+// import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
-import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
+import { useEffect } from "react"
+// import { useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
 import profile from '../../../assets/images/profile2.jpg'
 import { UsePagination } from "../../../hooks/UsePagination"
+// import { usePageSections, usePageState } from "../../../context/useScroll"
 
-const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
+const SectionHome = () => {
     // const {containerRef} = useContainer()
-    const {activeSection} = useScroll()
+    // const {activeSection} = usePageState()
     // const {visibleSection, setVisibleSection} = useVisibleSection()
     // const sectionRef = useRef(activeSection)
     // const {handleWheel} = UsePageScroll()
-    const {sections} = useSectionsRef()
-    const localRef = useRef(null)
-    const {scope} = useAnimateInOut()
+    // const {sections} = usePageSections()
+    // const localRef = useRef(null)
+    // const {scope} = useAnimateInOut()
 
     const {buttonContactHome} = UsePagination({
         isAnimating: ()=>{},
@@ -185,6 +186,6 @@ const SectionHome = forwardRef<HTMLDivElement>(({title, index},ref) => {
                     </motion.div>
                 </motion.section>
     </>
-})
+}
 
 export default SectionHome

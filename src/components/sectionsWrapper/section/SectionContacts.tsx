@@ -1,14 +1,14 @@
-import { AnimatePresence, color, useInView } from "motion/react"
+// import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react"
-import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
+import { useEffect } from "react"
+// import { useAnimateInOut, useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
 import contact from '../../../assets/images/contact.jpg'
 import { TbMailFilled } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
 
-const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
+const SectionContacts = () => {
     // const {containerRef} = useContainer()
     // const {visibleSection, setVisibleSection} = useVisibleSection()
     // const sectionRef = useRef(activeSection)
@@ -78,7 +78,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
             transition: {
                 delay: 0.1,
                 // delay:0,
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 900,
                 damping: 45,
                 mass: 3,
@@ -93,44 +93,20 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
     };
     const contact2Variants = {
         enter: () => ({ 
-            // opacity: 0, 
             y: 40,
-            // clipPath: [
-            //     "circle(50% at 100% 50%)",
-            //     "circle(50% at 100% 50%)",
-                // "circle(75% at 50% 50%)",
-                // "circle(150% at 50% 50%)",
-            // ],
             opacity: 1,
             clipPath: "inset(0 0 80% 0)",
-            // transition: {
-            //     // transition untuk y (spring dengan delay)
-            //     type: "spring",
-            //     stiffness: 280,
-            //     damping: 25,
-                // mass: 10,
-                // clipPath: {
-                //     duration:1,
-                //     ease: "easeInOut",
-
-                // }
-                
-                // transition khusus clipPath (override, tidak ikut spring)
-            // },
         }),
         center: ()=>({ 
             opacity: 1, 
             y: 0 ,
-            // clipPath: "circle(100% at 50% 50%)",
             clipPath: "inset(0 0 0% 0)",
             transition: {
                 delay: 0.3,
-                // delay:0,
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 900,
                 damping: 45,
                 mass: 3,
-                // ease: 'easeInOut',
                 clipPath: {
                     delay: 0.6,
                     duration: 0.7,   // ← animasi clipPath terjadi di sini
@@ -174,7 +150,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
             transition: {
                 delay: 0.5,
                 // delay:0,
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 900,
                 damping: 45,
                 mass: 3,
@@ -222,7 +198,7 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
             transition: {
                 delay: 0.7,
                 // delay:0,
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 900,
                 damping: 45,
                 mass: 4,
@@ -404,6 +380,6 @@ const SectionContacts = forwardRef<HTMLDivElement>(({title, index},ref) => {
                     </motion.div>
                 </motion.section>
     </>
-})
+}
 
 export default SectionContacts

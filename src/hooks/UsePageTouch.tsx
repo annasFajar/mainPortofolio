@@ -1,16 +1,16 @@
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import { usePageState } from "../context/ScrollContext"
+import React, { useCallback, useEffect, useRef } from "react"
+// import { usePageState } from "../context/ScrollContext"
 
 type touchParam = {
-    ref:React.Ref<HTMLDivElement>,
+    ref: React.RefObject<HTMLDivElement | null>,
     nextScroll: () => void,
     previousScroll: () => void
 }
 
 export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
     // const [[startClick, endClick], setTouch] = useState([0,0])
-    const startRef = useRef(0)
-    const debounce = useRef(false)
+    const startRef = useRef<number | undefined>(0)
+    const debounce = useRef<boolean>(false)
 
     const touchAnimate = () => {
         
@@ -35,7 +35,7 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
         
         if (debounce.current === false) {
             const endScreenY = e.changedTouches.item(0)?.screenY
-            // endRef.current = screenY
+            if(startRef.current === undefined || endScreenY === undefined) return
             
             const dir = startRef.current - endScreenY
             console.log(dir)
@@ -46,22 +46,22 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
                 previousScroll()
             }
         }
-    },[])
+    },[nextScroll,previousScroll])
 
             
 
     
     useEffect(()=>{
-        const refMain:HTMLElement = ref.current
+        const refMain = ref.current
         
-        refMain.addEventListener('touchstart', touchStart)
-        refMain.addEventListener('touchend', touchEnd)
+        refMain?.addEventListener('touchstart', touchStart)
+        refMain?.addEventListener('touchend', touchEnd)
         
         return () => {
-            refMain.removeEventListener('touchstart', touchStart)
-            refMain.removeEventListener('touchend', touchEnd)
+            refMain?.removeEventListener('touchstart', touchStart)
+            refMain?.removeEventListener('touchend', touchEnd)
         }
-    },[])
+    },[touchStart, touchEnd,ref])
     
 
     return {touchAnimate}

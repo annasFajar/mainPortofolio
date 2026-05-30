@@ -73,7 +73,7 @@ const NavbarTop = () => {
         center: {
             transition: {
                 // delay:1,
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 500,   // makin kecil = makin lambat
                 damping: 100,      // makin kecil = makin mantul
                 mass: 10,    // makin besar = makin berat & lambat
@@ -84,7 +84,7 @@ const NavbarTop = () => {
         exit: {
             scale:0,
             transition:{
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 400,   // makin kecil = makin lambat
                 damping: 150,      // makin kecil = makin mantul
                 mass: 10,    // makin besar = makin berat & lambat
@@ -113,7 +113,7 @@ const NavbarTop = () => {
             x:-80,
             opacity:0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 1000,   // makin kecil = makin lambat
                 damping: 150,      // makin kecil = makin mantul
                 mass: 1,   
@@ -140,7 +140,7 @@ const NavbarTop = () => {
             x:-80,
             opacity:0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 1000,   // makin kecil = makin lambat
                 damping: 150,      // makin kecil = makin mantul
                 mass: 1,   
@@ -167,7 +167,7 @@ const NavbarTop = () => {
             x:-80,
             opacity:0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 1000,   // makin kecil = makin lambat
                 damping: 150,      // makin kecil = makin mantul
                 mass: 1,   
@@ -194,7 +194,7 @@ const NavbarTop = () => {
             x:-80,
             opacity:0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 1000,   // makin kecil = makin lambat
                 damping: 150,      // makin kecil = makin mantul
                 mass: 1,   
@@ -221,7 +221,7 @@ const NavbarTop = () => {
             x:-80,
             opacity:0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 1000,   // makin kecil = makin lambat
                 damping: 150,      // makin kecil = makin mantul
                 mass: 1,   
@@ -269,7 +269,7 @@ const NavbarTop = () => {
 
         <AnimatePresence 
                 key={1}
-         >
+        >
             {nav && <motion.div 
                 className="fixed z-20 bg-gray-700 w-20 h-20 rounded-full opacity-95 -right-20 -top-20"
                 initial='enter'
@@ -291,14 +291,14 @@ const NavbarTop = () => {
                     >Menu</motion.h1>
                 <ul className="flex flex-col gap-7">
                     <motion.a
-                        className="text-[19.5px] leading-[26px] text-white font-jost font-bold"
+                        className="text-[19.5px] leading-6.5 text-white font-jost font-bold"
                         variants={variantHome}
                         initial='enter'
                         animate='center'
                         exit='exit'
                         >Home</motion.a>
                     <motion.a
-                        className="text-[19.5px] leading-[26px] text-white font-jost font-bold"
+                        className="text-[19.5px] leading-6.5 text-white font-jost font-bold"
                         variants={variantAbout}
                         initial='enter'
                         animate='center'
@@ -306,14 +306,14 @@ const NavbarTop = () => {
                         
                         >About</motion.a>
                     <motion.a
-                        className="text-[19.5px] leading-[26px] text-white font-jost font-bold"
+                        className="text-[19.5px] leading-6.5 text-white font-jost font-bold"
                         variants={variantProjects}
                         initial='enter'
                         animate='center'
                         exit='exit'
                         >Projects</motion.a>
                     <motion.a
-                        className="text-[19.5px] leading-[26px] text-white font-jost font-bold"
+                        className="text-[19.5px] leading-6.5 text-white font-jost font-bold"
                         variants={variantContact}
                         initial='enter'
                         animate='center'

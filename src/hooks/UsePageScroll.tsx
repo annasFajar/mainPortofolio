@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useRef } from "react"
-import { useAnimateInOut, useContainer, useIsAnimating, usePageState, useScroll, useSectionOut, useSectionsRef, useVisibleSection } from "../context/ScrollContext"
-import { UsePagination } from "./UsePagination"
+// import { usePageState } from "../context/useScroll"
+// import { usePageState } from "../context/ScrollContext"
+// import { UsePagination } from "./UsePagination"
 // import { AnimateInOut } from "../utils/animateInOut"
 
 type UsePageScrollProps = {
-    refContainer:React.Ref<HTMLElement> | null
+    refContainer:React.RefObject<HTMLDivElement | null>
     scrollUp: () => void,
-    scrollDown: () => void
+    scrollDown: () => void 
 }
 export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollProps) => {
     // const containerRef = useRef(null)
@@ -21,9 +22,10 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
     // const {isOut, setIsOut} = useSectionOut()
     // const {containerRef} = useContainer()
     // const {isAnimating} = useIsAnimating()
-    const {setPage} = usePageState()
+    // const {setPage} = usePageState()
     const isAnimating = useRef(false)
     const lastWheelDirection = useRef(0)
+    const scrollUpRef = useRef(scrollUp)
 
 
     // wheel
@@ -116,17 +118,24 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
         // }
         
     // },[paginate, page])
-    },[])
+    },[scrollDown,scrollUp])
 
     useEffect(()=>{
         const container = refContainer.current
-        container.addEventListener('wheel',handleWheel)
+        container?.addEventListener('wheel',handleWheel)
 
         return () => {
-            container.removeEventListener('wheel',handleWheel)
+            container?.removeEventListener('wheel',handleWheel)
             console.log('lsa')
         }
-    },[])
+    },[refContainer,handleWheel])
+
+    useEffect(() => {
+    if (scrollUpRef.current !== scrollUp) {
+        console.log("scrollUp referensi berubah!")
+        scrollUpRef.current = scrollUp
+        }
+    })
 
     
     return {blockAnimation, runAnimation}

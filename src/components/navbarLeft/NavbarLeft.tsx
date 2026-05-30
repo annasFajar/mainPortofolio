@@ -1,12 +1,11 @@
-import { forwardRef, useEffect, useState } from "react"
-import { usePageState, useScroll } from "../../context/ScrollContext"
+// import { usePageState } from "../../context/ScrollContext"
 import { motion } from "motion/react"
 import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { FaFolderOpen } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { UsePagination } from "../../hooks/UsePagination";
-
+import { usePageState } from "../../context/useScroll";
 
 
 const NavbarLeft = () => {
@@ -85,7 +84,7 @@ const NavbarLeft = () => {
                 }}
             >t</li>  */}
             <ul
-                className="flex flex-col items-center justify-between h-8/10 w-[34px]"
+                className="flex flex-col items-center justify-between h-8/10 w-8.5"
             >
                 {Sections.map((section,i)=>(
                     <li 
@@ -108,7 +107,7 @@ const NavbarLeft = () => {
                             //     color:{delay:1}
                             // }}
                             className='cursor-pointer '
-                            onClick={(e)=> {
+                            onClick={()=> {
                                     const dir = i > page ? 1 : -1 
                                     paginationNavLeft(i,dir)
                                 }

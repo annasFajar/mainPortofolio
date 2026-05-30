@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react"
 import HomeLayout from "../../layouts/HomeLayouts"
-import NavbarLeft from "../../components/navbarLeft/NavbarLeft"
-import { ScrollProvider } from "../../context/ScrollContext"
+import ScrollProvider from "../../context/ScrollProvider"
+// import { ScrollProvider } from "../../context/ScrollContext"
 
 const MainLanding = () => {
     // landing page
