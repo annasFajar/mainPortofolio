@@ -1,6 +1,6 @@
 // import { AnimatePresence, color, useInView } from "motion/react"
 import {motion} from "motion/react"
-import { useEffect } from "react"
+import { useCallback, useEffect } from "react"
 // import { useContainer, useScroll, useSectionsRef } from "../../../context/ScrollContext"
 import profile from '../../../assets/images/profile2.jpg'
 import { UsePagination } from "../../../hooks/UsePagination"
@@ -17,8 +17,8 @@ const SectionHome = () => {
     // const {scope} = useAnimateInOut()
 
     const {buttonContactHome} = UsePagination({
-        isAnimating: ()=>{},
-        touchAnimation: ()=>{}
+        isAnimating: useCallback(()=>{},[]),
+        blockAnimation: useCallback(()=>{},[])
     })
 
     // useImperativeHandle(ref,()=>{

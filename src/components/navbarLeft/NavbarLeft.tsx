@@ -7,6 +7,7 @@ import { TbMailFilled } from "react-icons/tb";
 import { UsePagination } from "../../hooks/UsePagination";
 import { useAnimation, usePageState } from "../../context/useScroll";
 import { UseNavLeft } from "../../hooks/UseNavLeft";
+import { useCallback } from "react";
 
 
 const NavbarLeft = () => {
@@ -51,7 +52,9 @@ const NavbarLeft = () => {
     };
 
     const {paginationNavLeft} = UsePagination({
-        isAnimating: () => runAnimateNavLeft(),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        isAnimating: useCallback(() => runAnimateNavLeft(),[]),
+        blockAnimation: useCallback(()=>{},[])
         // touchAnimation: ()=>{}
     })
 
