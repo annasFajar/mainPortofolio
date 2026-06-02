@@ -69,13 +69,12 @@ const SectionsWrappers = () => {
             y: 0, 
             x:0,
             opacity:1,
-
         },
         exit: (dirCustom:number) => {
             return {
                 zIndex: 0,
                 y:dirCustom > 0 ? -window.innerHeight : window.innerHeight, 
-                opacity: 1,
+                // opacity: 0,
                 // duration: 1
             }
         }
@@ -202,18 +201,21 @@ const SectionsWrappers = () => {
                     exit="exit"
                     transition={{
                         y: {
-                            type: "tween", 
+                            // type: "spring", 
                             // stiffness: 50,   // makin kecil = makin lambat
                             // damping: 10,      // makin kecil = makin mantul
-                            // mass: 5.5,
-                            duration: 1
+                            // mass: 1,
+                            // duration: 1
+                            type: "tween",   // langsung, tidak ada spring calculation
+                            duration: 0.5,
+                            ease: "easeIn"
                         },
                         // opacity: {duration:1},
                         // opacity: 1;
                         // ease: [1, 0, 1, 1],
                     }}
                     onAnimationComplete={(definition)=>{
-                        // console.log(`definition: ${definition}, page: ${page}`)
+                        console.log(`definition: ${definition}, page: ${page}`)
                         if (definition === 'center') {
                             // console.log(`selesai ${definition}`)
                             blockAnimation()

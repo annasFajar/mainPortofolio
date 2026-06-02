@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from "react"
+import { useAnimation } from "../context/useScroll"
 // import { usePageState } from "../context/ScrollContext"
 
 type touchParam = {
@@ -11,7 +12,8 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
     // const [[startClick, endClick], setTouch] = useState([0,0])
     const startRef = useRef<number | undefined>(0)
     const startTime = useRef<number | undefined>(0)
-    const debounce = useRef<boolean>(false)
+    // const debounce = useRef<boolean>(false)
+    const {isAnimating} = useAnimation()
 
     // const touchAnimate = () => {
         
@@ -25,21 +27,21 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
     // }
 
     const touchStart = useCallback((e:TouchEvent)=> {
-        if (debounce.current === false) {
+        if (isAnimating.current === false) {
             const screenY = e.touches.item(0)?.screenY
             const start = Date.now()
             startRef.current = screenY
             startTime.current = start
             // console.log(screenY)
             // console.log(e.touches[0].clientY)
-
+            // console.log('start')
         }
-    },[])
+    },[isAnimating])
     
     const touchEnd = useCallback((e:TouchEvent) => {
-        console.log(debounce.current)
+        console.log(isAnimating.current)
         
-        if (debounce.current === false) {
+        if (isAnimating.current === false) {
             const endScreenY = e.changedTouches.item(0)?.screenY
             if(startRef.current === undefined || endScreenY === undefined || startTime.current === undefined) return
             const end = Date.now()
@@ -50,9 +52,10 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
             console.log(dir)
             // console.log(Math.abs(dir))
             console.log(time)
-            if (Math.abs(dir) < 50 || time > 500) return
+            if (Math.abs(dir) < 50 ) return
             if (dir > 0) nextScroll()
             else previousScroll()
+            // isAnimating.current = true
         }
     },[nextScroll,previousScroll])
 
