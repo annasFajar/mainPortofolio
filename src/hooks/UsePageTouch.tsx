@@ -46,15 +46,11 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
             console.log('masuk')
             const dir = startRef.current - endScreenY
             const time = end - startTime.current
-
-            // console.log(dir)
+            
+            console.log(dir)
             // console.log(Math.abs(dir))
-            if (Math.abs(dir) > 30 || time < 500) {
-                nextScroll()
-            } 
-            if (Math.abs(dir) < -30 || time < 500) {
-                previousScroll()
-            }
+            console.log(time)
+            // if (Math.abs(dir) < 50 || time < ) return
         }
     },[nextScroll,previousScroll])
 
