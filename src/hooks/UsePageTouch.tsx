@@ -10,23 +10,29 @@ type touchParam = {
 export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
     // const [[startClick, endClick], setTouch] = useState([0,0])
     const startRef = useRef<number | undefined>(0)
+    const startTime = useRef<number | undefined>(0)
     const debounce = useRef<boolean>(false)
 
-    const touchAnimate = () => {
+    // const touchAnimate = () => {
         
-        console.log('debounce jalan')
-        debounce.current = true
+    //     console.log('debounce jalan')
+    //     debounce.current = true
         
-        setTimeout(() => {
-            debounce.current = false
-            console.log('false')
-            }, 3500);
-    }
+    //     setTimeout(() => {
+    //         debounce.current = false
+    //         // console.log('false')
+    //         }, 3500);
+    // }
 
     const touchStart = useCallback((e:TouchEvent)=> {
         if (debounce.current === false) {
             const screenY = e.touches.item(0)?.screenY
+            const start = Date.now()
             startRef.current = screenY
+            startTime.current = start
+            // console.log(screenY)
+            // console.log(e.touches[0].clientY)
+
         }
     },[])
     
@@ -35,14 +41,18 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
         
         if (debounce.current === false) {
             const endScreenY = e.changedTouches.item(0)?.screenY
-            if(startRef.current === undefined || endScreenY === undefined) return
-            
+            if(startRef.current === undefined || endScreenY === undefined || startTime.current === undefined) return
+            const end = Date.now()
+            console.log('masuk')
             const dir = startRef.current - endScreenY
-            console.log(dir)
-            if (dir > 0) {
+            const time = end - startTime.current
+
+            // console.log(dir)
+            // console.log(Math.abs(dir))
+            if (Math.abs(dir) > 30 || time < 500) {
                 nextScroll()
             } 
-            if (dir < 0) {
+            if (Math.abs(dir) < -30 || time < 500) {
                 previousScroll()
             }
         }
@@ -64,5 +74,5 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
     },[touchStart, touchEnd,ref])
     
 
-    return {touchAnimate}
+    return {}
 }

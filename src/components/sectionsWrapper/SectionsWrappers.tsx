@@ -9,6 +9,7 @@ import SectionContacts from "./section/SectionContacts"
 import { UsePagination } from "../../hooks/UsePagination"
 import { UsePageTouch } from "../../hooks/UsePageTouch"
 import { usePageState } from "../../context/useScroll"
+import { UseNavLeft } from "../../hooks/UseNavLeft"
 
 const SectionsWrappers = () => {
     // const [[page, direction], setPage] = useState([0,0])
@@ -29,7 +30,7 @@ const SectionsWrappers = () => {
     // const wheelDebounceTimer = useRef(0)
 
     // const scrollCondition = useRef(true)
-    const {blockAnimation} = UsePageScroll({
+    const {blockAnimation, runAnimation} = UsePageScroll({
         refContainer:containerRef,        
         // eslint-disable-next-line react-hooks/exhaustive-deps
         scrollUp: useCallback(()=> nextPage(),[]),
@@ -38,19 +39,22 @@ const SectionsWrappers = () => {
     })
     const {nextPage,previousPage} = UsePagination({
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        isAnimating: useCallback(() => blockAnimation(),[]),
+        isAnimating: useCallback(() => runAnimation(),[]),
+        // touchAnimation: useCallback(() => touchAnimate(),[])
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        touchAnimation: useCallback(() => touchAnimate(),[])
+        blockAnimation: useCallback(() => blockAnimation(),[])
     })
     
-    const {touchAnimate} = UsePageTouch({
+    UsePageTouch({
         ref: containerRef,
         nextScroll: () => nextPage(),
         previousScroll: () => previousPage()
     })
 
-    
+    const {blockAnimateNavLeft} = UseNavLeft()
 
+    
+    
 
     const variants = {
         // enter: (dirCustom:number) => {
@@ -168,7 +172,7 @@ const SectionsWrappers = () => {
     // },[])
     
 
-    console.log(`dir: ${direction}`) 
+    // console.log(`dir: ${direction}`) 
     // logic()
     return (
         <>
@@ -185,7 +189,7 @@ const SectionsWrappers = () => {
                 mode="wait"
                 onExitComplete={() => {
                     // isAnimating.current = false
-                    console.log('selesai onExit')
+                    // console.log('selesai onExit')
                     
                 }}
             >
@@ -209,10 +213,11 @@ const SectionsWrappers = () => {
                         // ease: [1, 0, 1, 1],
                     }}
                     onAnimationComplete={(definition)=>{
-                        console.log(`definition: ${definition}, page: ${page}`)
+                        // console.log(`definition: ${definition}, page: ${page}`)
                         if (definition === 'center') {
-                            console.log(`selesai ${definition}`)
+                            // console.log(`selesai ${definition}`)
                             blockAnimation()
+                            blockAnimateNavLeft()
                             console.log('scroll on')
                         }
                     }}

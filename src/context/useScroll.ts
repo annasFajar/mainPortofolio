@@ -12,3 +12,9 @@ export const usePageSections = () => {
     if(!context) throw new Error('usePageSections undefined')
     return context
 }
+
+export const useAnimation = () => {
+    const context = useContext(ScrollContext)
+    if (!context) throw new Error('Is animating undefined')
+    return context
+}

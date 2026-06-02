@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from "react"
+import { useAnimation } from "../context/useScroll"
 // import { usePageState } from "../context/useScroll"
 // import { usePageState } from "../context/ScrollContext"
 // import { UsePagination } from "./UsePagination"
@@ -23,8 +24,9 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
     // const {containerRef} = useContainer()
     // const {isAnimating} = useIsAnimating()
     // const {setPage} = usePageState()
-    const isAnimating = useRef(false)
+    // const isAnimating = useRef(false)
     const lastWheelDirection = useRef(0)
+    const {isAnimating,setStateAnimating} = useAnimation()
     const scrollUpRef = useRef(scrollUp)
 
 
@@ -60,11 +62,12 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
 
     const runAnimation = useCallback(()=>{
         isAnimating.current = true
-    },[])
+        setStateAnimating(true)
+    },[isAnimating, setStateAnimating])
 
     const blockAnimation = useCallback(()=>{
         isAnimating.current = false
-    },[])
+    },[isAnimating])
 
     // const paginate = useCallback((newDirection:number) => {
             
@@ -92,10 +95,10 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
         const dir = e.deltaY > 0 ? 1 : -1
 
         lastWheelDirection.current = dir
-        console.log(dir)
+        // console.log(dir)
 
         if (isAnimating.current === false) {
-            console.log('haloo')
+            console.log(isAnimating.current)
             if (dir > 0) scrollUp()
             else scrollDown()
         }
@@ -118,7 +121,7 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
         // }
         
     // },[paginate, page])
-    },[scrollDown,scrollUp])
+    },[scrollDown,scrollUp,isAnimating])
 
     useEffect(()=>{
         const container = refContainer.current
@@ -126,7 +129,7 @@ export const UsePageScroll = ({refContainer,scrollUp,scrollDown}:UsePageScrollPr
 
         return () => {
             container?.removeEventListener('wheel',handleWheel)
-            console.log('lsa')
+            // console.log('lsa')
         }
     },[refContainer,handleWheel])
 

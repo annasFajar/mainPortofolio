@@ -5,11 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { FaFolderOpen } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { UsePagination } from "../../hooks/UsePagination";
-import { usePageState } from "../../context/useScroll";
+import { useAnimation, usePageState } from "../../context/useScroll";
+import { UseNavLeft } from "../../hooks/UseNavLeft";
 
 
 const NavbarLeft = () => {
     const {page} = usePageState()
+    const {stateAnimating} = useAnimation()
 
 
     const Sections = [
@@ -49,9 +51,11 @@ const NavbarLeft = () => {
     };
 
     const {paginationNavLeft} = UsePagination({
-        isAnimating: ()=>{},
-        touchAnimation: ()=>{}
+        isAnimating: () => runAnimateNavLeft(),
+        // touchAnimation: ()=>{}
     })
+
+    const {runAnimateNavLeft} = UseNavLeft()
 
     return <>
         <div
@@ -106,7 +110,7 @@ const NavbarLeft = () => {
                             //     fontSize:{duration:1},
                             //     color:{delay:1}
                             // }}
-                            className='cursor-pointer '
+                            className={stateAnimating? 'pointer-events-none':'cursor-pointer pointer-events-auto'}
                             onClick={()=> {
                                     const dir = i > page ? 1 : -1 
                                     paginationNavLeft(i,dir)

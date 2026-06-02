@@ -8,9 +8,10 @@ const ScrollProvider = ({children}:{children:ReactNode}) => {
     const isAnimating = useRef(false)
     const sections = useRef([])
     const [[page, direction], setPage] = useState<[number,number]>([0,0])
+    const [stateAnimating,setStateAnimating] = useState(false)
 
     return <>
-        <ScrollContext.Provider value={{page,direction,setPage,sections, visibleSection, setVisibleSection, isOut, setIsOut ,activeSection,isAnimating}}>
+        <ScrollContext.Provider value={{page,direction,setPage,sections, visibleSection, setVisibleSection, isOut, setIsOut ,activeSection,isAnimating,stateAnimating,setStateAnimating}}>
             {children}
         </ScrollContext.Provider>
     </>

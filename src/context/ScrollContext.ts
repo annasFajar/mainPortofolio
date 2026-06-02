@@ -7,6 +7,8 @@ export type scrollContextType = {
     isOut: number,
     setIsOut: Dispatch<SetStateAction<number>>,
     isAnimating: React.RefObject<boolean>,
+    stateAnimating: boolean,
+    setStateAnimating: Dispatch<SetStateAction<boolean>>,
     sections: React.RefObject<HTMLDivElement[]>,
     page: number,
     direction: number,
