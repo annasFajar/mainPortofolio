@@ -50,7 +50,9 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
             console.log(dir)
             // console.log(Math.abs(dir))
             console.log(time)
-            // if (Math.abs(dir) < 50 || time < ) return
+            if (Math.abs(dir) < 50 || time > 500) return
+            if (dir > 0) nextScroll()
+            else previousScroll()
         }
     },[nextScroll,previousScroll])
 
