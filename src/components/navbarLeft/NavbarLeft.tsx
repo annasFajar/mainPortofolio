@@ -53,7 +53,7 @@ const NavbarLeft = () => {
 
     const {paginationNavLeft} = UsePagination({
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        isAnimating: useCallback(() => runAnimateNavLeft(),[]),
+        isAnimation: useCallback(() => runAnimateNavLeft(),[]),
         blockAnimation: useCallback(()=>{},[])
         // touchAnimation: ()=>{}
     })

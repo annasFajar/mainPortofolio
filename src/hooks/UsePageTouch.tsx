@@ -57,7 +57,7 @@ export const UsePageTouch = ({ref,nextScroll,previousScroll}:touchParam) => {
             else previousScroll()
             // isAnimating.current = true
         }
-    },[nextScroll,previousScroll])
+    },[nextScroll,previousScroll,isAnimating])
 
             
 

@@ -39,7 +39,7 @@ const SectionsWrappers = () => {
     })
     const {nextPage,previousPage} = UsePagination({
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        isAnimating: useCallback(() => runAnimation(),[]),
+        isAnimation: useCallback(() => runAnimation(),[]),
         // touchAnimation: useCallback(() => touchAnimate(),[])
         // eslint-disable-next-line react-hooks/exhaustive-deps
         blockAnimation: useCallback(() => blockAnimation(),[])

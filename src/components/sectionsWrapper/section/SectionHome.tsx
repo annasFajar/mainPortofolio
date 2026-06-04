@@ -17,7 +17,7 @@ const SectionHome = () => {
     // const {scope} = useAnimateInOut()
 
     const {buttonContactHome} = UsePagination({
-        isAnimating: useCallback(()=>{},[]),
+        isAnimation: useCallback(()=>{},[]),
         blockAnimation: useCallback(()=>{},[])
     })
 
