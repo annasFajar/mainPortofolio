@@ -47,7 +47,7 @@ const AboutMe = () => {
                     className="md:p-10 max-md:flex-col-reverse  flex justify-between items-center max-md:mx-auto max-md:w-full w-[82%] max-w-screen-2xl relative"
                 >
                     <motion.div
-                        className="max-md:w-full max-md:px-9.25 max-md:z-10 md:pr-3 max-md:gap-6 md:gap-4 z-10 flex flex-col bg-gray-200"
+                        className="max-md:w-full max-md:px-9.25 max-md:z-10 md:pr-3 max-md:gap-6 md:gap-4 z-10 flex flex-col max-md:bg-gray-200"
                         // style={{scaleX:1.4}}
                     >
                         <motion.div 
@@ -110,7 +110,7 @@ const AboutMe = () => {
                             </motion.div>
                         </motion.div>
                         <motion.p
-                            className="font-jost text-[16px] text-gray-500"
+                            className="font-jost text-[16px] text-gray-500 bg-gray-200"
                             // variants={descVariants}
                             // initial="enter"
                             // animate="center"
@@ -181,7 +181,7 @@ const AboutMe = () => {
                 </motion.div>
                 
             </motion.section>
-            <motion.section className="h-screen md:p-10 w-[90%] mx-auto">
+            <motion.section className="md:p-10 w-[90%] mx-auto">
                 <motion.div
                     className="gap-1.5 flex flex-col"
                 >
@@ -404,25 +404,35 @@ const AboutMe = () => {
                 </div>
             </motion.section>
             <motion.section
-                className="md:p-10 w-[90%] mx-auto"
+                className="w-[90%]  flex-center mx-auto"
             >
-                <div>
+                <div  className="flex-center flex-col gap-11">
                     <div
-                        className="flex-center flex-col"
+                        className="flex-center flex-col text-center gap-1.5"
                     >
-                        <h1>EDUCATION</h1>
-                        <h5>Get to know more about my educational background.</h5>
+                        <h1 
+                            className="font-jost text-[29.25px] font-bold leading-[32.5px]"
+                            >Education</h1>
+                        <h5
+                            className="font-poppins text-[13px] leading-[19.5px]"
+                        >Get to know more about my educational background.</h5>
                     </div>
                     <div
-                        className="flex-center"
+                        className="flex items-center flex-wrap gap-4 md:justify-between max-md:justify-center w-[80%]"
                     >
-                        <div>
+                        <div className="flex flex-col gap-2 md:w-[47%] mb-12">
                             <div>
-                                <h1>2024 - ...</h1>
+                                <h1
+                                    className="font-poppins font-medium text-[14.625px] leading-[14.625px]"
+                                >2024 - Present <span className="italic">(Semester 6 of 8)</span></h1>
                             </div>
                             <div>
-                                <h1>Universitas Indraprasta</h1>
-                                <h5>S1 Teknik Informatika | Computer Science</h5>
+                                <h1
+                                    className="font-jost font-semibold text-[16.25px] leading-[22.75px]"
+                                >Universitas Indraprasta</h1>
+                                <h5
+                                    className="font-jost text-[13px] leading-[19.5px]"
+                                >S1 Teknik Informatika | Computer Science</h5>
                             </div>
                             <div
                             className="flex-center flex gap-2 [&:hover>*:not(:hover)]:flex-[0.6] [&:hover>*:not(:hover)]:opacity-75"
@@ -450,18 +460,40 @@ const AboutMe = () => {
                                 </div>
                             </div>
                             <div>
-
+                                <p 
+                                    className="text-justify font-jost text-[15px] leading-5.5 text-gray-700">
+                                    Lorem ipsum dolor sit amet,{" "}<span className="font-semibold text-black">consectetur adipisicing elit</span>. Facilis deserunt est vitae minus at quis, laboriosam commodi aliquam nihil, ipsum, officia beatae tenetur sint excepturi repellat odit ab cum ipsam.
+                                    <br/>
+                                    <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis deserunt est vitae minus at quis, laboriosam commodi aliquam nihil, ipsum {" "} 
+                                    <span className="font-semibold text-black">
+                                        consectetur adipisicing elit
+                                    </span> 
+                                    {" "}cum ipsam.
+                                    <br />
+                                    <br />
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis deserunt est vitae minus at quis, laboriosam commodi aliquam nihil, ipsum, officia beatae tenetur{" "}    
+                                    <span className="font-semibold text-black">
+                                        sintexcepturi sda odit ab cum ipsam
+                                    </span>
+                                    .
+                                </p>
+                                
                             </div>
                         </div>
-                        <div>
+                        <div className="flex flex-col gap-2 md:w-[47%] self-start">
                             <div>
-                                <h1>Achievement</h1>
-                                <h5>Some of my achievements during my study.</h5>
+                                <h1
+                                    className="font-jost font-semibold text-[16.25px] leading-[22.75px]"
+                                >Certificate</h1>
+                                <h5
+                                    className="font-poppins text-[13px] leading-[19.5px]"
+                                >Some of my certificates during my study.</h5>
                             </div>
                             <div>
                                 <h1>2025</h1>
                                 <div
-                                    className="max-sm:w-[95%] lg:w-[82%] flex-center flex-col text-center h-40 w-65 p-3 border-2 border-gray-950 rounded-[12px]"
+                                    className="max-sm:w-[95%] lg:w-[82%] flex-center flex-col text-center h-40 w-65 p-3 border-2 border-gray-950 rounded-xl"
                                 >
                                     <h1>INFRASTRUCTURE & TOOLS</h1>
                                     <div
