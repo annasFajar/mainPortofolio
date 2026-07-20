@@ -2,7 +2,7 @@ import AboutMe from "../components/aboutMe/AboutMe"
 import NavbarTop from "../components/navbarTop/NavbarTop"
 import { IoChevronBackOutline } from "react-icons/io5";
 
-const AboutMeLayout = () => {
+const   AboutMeLayout = () => {
 
     return <>
         <div className="bg-gray-200 flex flex-col gap-15">   

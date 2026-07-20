@@ -4,6 +4,7 @@ import { PiStarFourFill } from "react-icons/pi";
 import { FaSpotify } from "react-icons/fa";
 import { DiCodepen } from "react-icons/di";
 import { LuWebhook } from "react-icons/lu";
+import { TbCertificate } from "react-icons/tb";
 
 const AboutMe = () => {
     const descVariants = {
@@ -462,9 +463,9 @@ const AboutMe = () => {
                         >Get to know more about my educational background.</h5>
                     </div>
                     <div
-                        className="flex items-center flex-wrap gap-4 md:justify-between max-md:justify-center w-[80%]"
+                        className="flex items-center flex-wrap gap-4 md:justify-between max-md:justify-center w-[89%]"
                     >
-                        <div className="flex flex-col gap-2 md:w-[47%] mb-12">
+                        <div className="flex flex-col gap-2 md:w-[47%] mb-12 ">
                             <div>
                                 <h1
                                     className="font-poppins font-medium text-[14.625px] leading-[14.625px]"
@@ -482,24 +483,24 @@ const AboutMe = () => {
                             className="flex-center flex gap-2 [&:hover>*:not(:hover)]:flex-[0.6] [&:hover>*:not(:hover)]:opacity-75"
                             >
                                 <div
-                                    className="flex-1 hover:flex-[2.2] transition-all duration-400 overflow-hidden rounded-xl"
+                                    className="flex-1 hover:flex-[2.2] max-md:hover:flex-1 transition-all duration-400 overflow-hidden rounded-xl"
                                 >
                                     <img src={aboutMe} alt="" 
-                                        className="w-full h-100 object-cover transition-transform duration-400"
+                                        className="w-full h-80 max-md:h-48 object-cover transition-transform duration-400"
                                     />
                                 </div>
                                 <div
-                                    className="flex-1 hover:flex-[2.2] transition-all duration-400 overflow-hidden rounded-xl"
+                                    className="flex-1 hover:flex-[2.2] max-md:hover:flex-1 transition-all duration-400 overflow-hidden rounded-xl"
                                 >
                                     <img src={aboutMe} alt="" 
-                                        className="w-full h-100 object-cover transition-transform duration-400"
+                                        className="w-full h-80 max-md:h-48 object-cover transition-transform duration-400"
                                     />
                                 </div>
                                 <div
-                                    className="flex-1 hover:flex-[2.2] transition-all duration-400 overflow-hidden rounded-xl"
+                                    className="flex-1 hover:flex-[2.2] max-md:hover:flex-1 transition-all duration-400 overflow-hidden rounded-xl"
                                 >
                                     <img src={aboutMe} alt="" 
-                                        className="w-full h-100 object-cover  transition-transform duration-400"
+                                        className="w-full h-80 max-md:h-48 object-cover  transition-transform duration-400"
                                     />
                                 </div>
                             </div>
@@ -525,7 +526,7 @@ const AboutMe = () => {
                                 
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2 md:w-[47%] self-start">
+                        <div className="flex flex-col gap-7 w-full md:w-[47%] self-start">
                             <div>
                                 <h1
                                     className="font-jost font-semibold text-[16.25px] leading-[22.75px]"
@@ -534,46 +535,102 @@ const AboutMe = () => {
                                     className="font-poppins text-[13px] leading-[19.5px]"
                                 >Some of my certificates during my study.</h5>
                             </div>
-                            <div>
-                                <h1>2025</h1>
-                                <div
-                                    className="max-sm:w-[95%] lg:w-[82%] flex-center flex-col text-center h-40 w-65 p-3 border-2 border-gray-950 rounded-xl"
+                            <div className="flex flex-col gap-3">
+                                <div 
+                                    className="flex-center gap-3"
                                 >
-                                    <h1>INFRASTRUCTURE & TOOLS</h1>
+                                    <h1
+                                        className="font-jost text-[11px] font-medium leading-[19.5px] text-blue-900"
+                                    >2025</h1>
                                     <div
-                                        className="flex-center flex-wrap gap-x-2 gap-y-1"
+                                        className="flex-center border border-gray-500  w-full"
+                                    ></div>
+                                </div>
+                                <div
+                                    className="flex flex-col gap-2"
+                                >
+                                    <div
+                                        className=" gap-4 flex-center flex-col text-center w-full p-6 border border-gray-300 rounded-xl bg-gray-100 inset-shadow-xs shadow-black-300 shadow-md"
                                     >
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
+                                        <div 
+                                            className="flex justify-center items-center self-start gap-3"
                                         >
+                                            <div
+                                                className="bg-amber-300 rounded-full h-9 w-9 flex-center"
+                                            >
+                                                <TbCertificate 
+                                                    className="text-[21px] text-white"
+                                                />
+                                            </div>
+                                            <div
+                                                className="text-start"
+                                            >
+                                                <h1
+                                                    className="font-jost text-[13px] leading-[19.5px] font-medium"
+                                                >1st place (Gold Medal)</h1>
+                                                <h2
+                                                    className="font-poppins text-[11.375px] leading-[16.25px]"
+                                                >Indonesia Inventor Day 2024 (IID)</h2>
+                                                <p
+                                                    className="font-poppins text-[11.375px] leading-[16.25px] text-gray-900/40"
+                                                >mar 2025</p>
+                                            </div>
                                         </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
+                                    </div>
+                                    <div
+                                        className=" gap-4 flex-center flex-col text-center w-full p-6 border border-gray-300 rounded-xl bg-gray-100 inset-shadow-xs shadow-black-300 shadow-md"
+                                    >
+                                        <div 
+                                            className="flex justify-center items-center self-start gap-3"
                                         >
+                                            <div
+                                                className="bg-amber-300 rounded-full h-9 w-9 flex-center"
+                                            >
+                                                <TbCertificate 
+                                                    className="text-[21px] text-white"
+                                                />
+                                            </div>
+                                            <div
+                                                className="text-start"
+                                            >
+                                                <h1
+                                                    className="font-jost text-[13px] leading-[19.5px] font-medium"
+                                                >1st place (Gold Medal)</h1>
+                                                <h2
+                                                    className="font-poppins text-[11.375px] leading-[16.25px]"
+                                                >Indonesia Inventor Day 2024 (IID)</h2>
+                                                <p
+                                                    className="font-poppins text-[11.375px] leading-[16.25px] text-gray-900/40"
+                                                >mar 2025</p>
+                                            </div>
                                         </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
+                                    </div>
+                                    <div
+                                        className=" gap-4 flex-center flex-col text-center w-full p-6 border border-gray-300 rounded-xl bg-gray-100 inset-shadow-xs shadow-black-300 shadow-md"
+                                    >
+                                        <div 
+                                            className="flex justify-center items-center self-start gap-3"
                                         >
-                                        </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
-                                        >
-                                        </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
-                                        >
-                                        </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
-                                        >
-                                        </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
-                                        >
-                                        </div>
-                                        <div
-                                            className="h-8 w-25 bg-black text-white rounded-4xl"
-                                        >
+                                            <div
+                                                className="bg-amber-300 rounded-full h-9 w-9 flex-center"
+                                            >
+                                                <TbCertificate 
+                                                    className="text-[21px] text-white"
+                                                />
+                                            </div>
+                                            <div
+                                                className="text-start"
+                                            >
+                                                <h1
+                                                    className="font-jost text-[13px] leading-[19.5px] font-medium"
+                                                >1st place (Gold Medal)</h1>
+                                                <h2
+                                                    className="font-poppins text-[11.375px] leading-[16.25px]"
+                                                >Indonesia Inventor Day 2024 (IID)</h2>
+                                                <p
+                                                    className="font-poppins text-[11.375px] leading-[16.25px] text-gray-900/40"
+                                                >mar 2025</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
