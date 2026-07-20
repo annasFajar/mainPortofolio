@@ -1,6 +1,9 @@
 import { AnimatePresence, motion } from "motion/react"
 import aboutMe from '../../assets/images/aboutMe.jpg'
+import { PiStarFourFill } from "react-icons/pi";
 import { FaSpotify } from "react-icons/fa";
+import { DiCodepen } from "react-icons/di";
+import { LuWebhook } from "react-icons/lu";
 
 const AboutMe = () => {
     const descVariants = {
@@ -41,7 +44,7 @@ const AboutMe = () => {
             <motion.section
                 // variants={childVariants}
                 // initial='enter1'
-                className="h-screen flex justify-center items-center w-full overflow-hidden relative bg-gray-200"
+                className="h-screen flex justify-center items-center w-full overflow-hidden relative"
             >
                 <motion.div 
                     className="md:p-10 max-md:flex-col-reverse  flex justify-between items-center max-md:mx-auto max-md:w-full w-[82%] max-w-screen-2xl relative"
@@ -290,12 +293,14 @@ const AboutMe = () => {
                     className="flex-center flex-col gap-5"
                 >
                     <div
-                        className="flex-center flex-col text-center"
+                        className="flex-center flex-col text-center gap-3"
                     >
                         <h1
-                            className="text-3xl font-bold"
+                            className="text-[39px] leading-9.75 font-jost font-bold"
                         >Skills & Expertise</h1>
-                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam esse cumque aliquid recusandae nisi possimus ad Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta modi labore, aspernatur delectus qui provide</h5>
+                        <p
+                            className="font-jost leading-relaxed text-[16px] text-gray-700/90"
+                        >Explore my technical skills in web development, complete with the specific technologies and tools I use.</p>
                     </div>
                     <div
                         className="flex-center gap-4 flex-wrap"
@@ -304,100 +309,139 @@ const AboutMe = () => {
                             className="flex-center gap-4 flex-wrap"
                         >
                             <div
-                                className="flex-center flex-col text-center h-40 w-65 max-sm:w-[95%] p-3 border-2 border-gray-950 rounded-[12px]"
+                                className="flex-center flex-col text-center h-40 w-65 max-sm:w-[95%] p-3 border-2 border-gray-950 rounded-[12px] gap-1"
                             >
-                                <div className="bg-red-300 h-10 w-10"></div>
-                                <h1>Web Development</h1>
-                                <h5>Building modern, responsive web applications</h5>
+                                <DiCodepen 
+                                    className="h-10 w-10"
+                                />
+                                <h1
+                                    className="font-jost font-semibold text-[14.625px] leading-[22.75px]"
+                                >Web Development</h1>
+                                <p
+                                    className="font-jost leading-[16.25px] text-[13px] text-gray-700/90"
+                                >Building modern, responsive web applications</p>
                             </div>
                             <div
-                                className="max-sm:w-[95%] flex-center flex-col text-center h-40 w-65 p-3 border-2 border-gray-950 rounded-[12px]"
+                                className="flex-center flex-col text-center h-40 w-65 max-sm:w-[95%] p-3 border-2 border-gray-950 rounded-[12px] gap-1"
                             >
-                                <div className="bg-red-300 h-10 w-10"></div>
-                                <h1>Backend & API</h1>
-                                <h5>Creating robust and scalable backend services</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className="max-sm:w-[95%] lg:w-[82%] flex-center flex-col text-center h-40 w-65 p-3 border-2 border-gray-950 rounded-[12px]"
-                    >
-                        <h1>Technology Stack</h1>
-                        <div
-                            className="flex-center flex-wrap gap-x-2 gap-y-1"
-                        >
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
-                            </div>
-                            <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
-                            >
+                                <LuWebhook 
+                                    className="h-8 w-8"
+                                />
+                                <h1
+                                    className="font-jost font-semibold text-[14.625px] leading-[22.75px]"
+                                >Backend & API</h1>
+                                <p
+                                    className="font-jost leading-[16.25px] text-[13px] text-gray-700/90"
+                                >Creating robust and scalable backend services</p>
                             </div>
                         </div>
                     </div>
                     <div
-                        className="max-sm:w-[95%] lg:w-[82%] flex-center flex-col text-center h-40 w-65 p-3 border-2 border-gray-950 rounded-[12px]"
+                        className="max-sm:w-[95%] sm:w-[82%] gap-4 flex-center flex-col text-center w-65 p-6 border border-gray-300 rounded-xl bg-gray-100 inset-shadow-xs shadow-black-300 shadow-md"
                     >
-                        <h1>INFRASTRUCTURE & TOOLS</h1>
+                        <h1
+                            className="font-jost font-semibold text-[19.5px] leading-6.5"
+                        >Technology Stack</h1>
                         <div
-                            className="flex-center flex-wrap gap-x-2 gap-y-1"
+                            className="flex-center flex-wrap gap-x-2 gap-y-3 text-[12px]"
                         >
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 bg-black text-white rounded-4xl flex-center "
                             >
+                                <div className="flex-center gap-1">
+                                    <PiStarFourFill className="text-[8px] text-amber-300 animate-pulse"/>
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">React</p>
+                                </div>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 bg-black text-white rounded-4xl flex-center "
                             >
+                                <div className="flex-center gap-1">
+                                    <PiStarFourFill className="text-[8px] text-amber-300 animate-pulse"/>
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">TypeScript</p>
+                                </div>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 outline-1 outline-gray-400 text-black rounded-4xl flex-center"
                             >
+                                <div className="flex-center gap-1">
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">JavaScript</p>
+                                </div>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 bg-black text-white rounded-4xl flex-center "
                             >
+                                <div className="flex-center gap-1">
+                                    <PiStarFourFill className="text-[8px] text-amber-300 animate-pulse"/>
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">TailwindCSS</p>
+                                </div>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 outline-1 outline-gray-400 text-black rounded-4xl flex-center"
                             >
+                                <div className="flex-center gap-1">
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">HTML</p>
+                                </div>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 outline-1 outline-gray-400 text-black rounded-4xl flex-center"
                             >
+                                <div className="flex-center gap-1">
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">CSS</p>
+                                </div>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 p-4 outline-1 outline-gray-400 text-black rounded-4xl flex-center"
                             >
+                                <div className="flex-center gap-1">
+                                    <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Bootstrap</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className="max-sm:w-[95%] sm:w-[82%] gap-4 flex-center flex-col text-center w-65 p-6 border border-gray-200 rounded-xl bg-white/20 inset-shadow-xs shadow-black-300 shadow-md"
+                    >
+                        <h1
+                            className="font-jost font-medium text-[17px] leading-6.5 text-gray-500"
+                        >INFRASTRUCTURE & TOOLS</h1>
+                        <div
+                            className="flex-center flex-wrap gap-x-2 gap-y-3 text-xs"
+                        >
+                            <div
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
+                            >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Vercel</p>
                             </div>
                             <div
-                                className="h-8 w-25 bg-black text-white rounded-4xl"
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
                             >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Figma</p>
+                            </div>
+                            <div
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
+                            >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Docker</p>
+                            </div>
+                            <div
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
+                            >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Git</p>
+                            </div>
+                            <div
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
+                            >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Github</p>
+                            </div>
+                            <div
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
+                            >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Gitlab</p>
+                            </div>
+                            <div
+                                className="h-8 px-4 flex-center bg-gray-300/40 border border-gray-500/20 text-gray-600 rounded-[10px]"
+                            >
+                                <p className="h-fit m-0 p-0 font-jost font-medium leading-[16.25px]">Postman</p>
                             </div>
                         </div>
                     </div>
